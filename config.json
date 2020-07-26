@@ -1,0 +1,18 @@
+{
+  "mongo": {
+    "connection" : "mongodb://localhost:27017/",
+    "database_name": "users",
+    "collection_name": "currency"
+  },
+  "email": {
+    "from" : "...@yandex.ru",
+    "password" : "qwerty",
+    "to" : "...",
+    "smtp_server" : "smtp.yandex.ru:587"
+  },
+  "other": {
+    "email_header": "Заголовок письма",
+    "start_time": "08:00",
+    "path_to_photos": "C:/Users/user/projects/EyeOfBeholder/FRS/static/facephotos"
+  }
+}

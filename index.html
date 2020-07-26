@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Email</title>
+    <style type="text/css">
+      table,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 10px;
+      }
+      thead {
+        background-color: #4c8baf;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+  {% if items %}
+    <table>
+      <thead>
+        <tr>
+          <td>_id</td>
+          <td>uid</td>
+          <td>time_enrolled</td>
+          <td>photo</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in items %}
+        <tr>
+          <td>{{ row._id }}</td>
+          <td>{{ row.uid }}</td>
+          <td>{{ row.time_enrolled }}</td>
+          <td><img src='data:image/png;base64,{{b64[row.uid]}}'></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h3>Ничего не произошло</h3>
+  {% endif %}
+  </body>
+</html>
