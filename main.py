@@ -7,7 +7,6 @@ import base64
 import email.message
 from jinja2 import Template
 
-
 with open("config.json", encoding="utf-8") as json_config:
     config = json.load(json_config)
 
@@ -76,7 +75,7 @@ def send_email(cursor, cfg):
     server = smtplib.SMTP(cfg['email']['smtp_server'])
     server.starttls()
     server.login(msg['From'], password)
-    server.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+    server.sendmail(msg['From'], (cfg['email']['to']).split(','), msg.as_string().encode('utf-8'))
 
 
 def main():
@@ -89,8 +88,15 @@ def main():
         print(str(e))
 
 
-# main()
+def countdown():
+    print(
+        f"Отправка писем на [{config['email']['to']}] в [{config['other']['start_time']}] сейчас [{pendulum.now().to_time_string()[:-3]}]")
 
+
+print(
+    f"Отправка писем на [{config['email']['to']}] в [{config['other']['start_time']}] сейчас [{pendulum.now().to_time_string()[:-3]}]")
 schedule.every().day.at(config['other']['start_time']).do(main)
+schedule.every(2).hours.do(countdown)
+
 while True:
     schedule.run_pending()
