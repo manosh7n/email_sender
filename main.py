@@ -93,8 +93,7 @@ def countdown():
         f"Отправка писем на [{config['email']['to']}] в [{config['other']['start_time']}] сейчас [{pendulum.now().to_time_string()[:-3]}]")
 
 
-print(
-    f"Отправка писем на [{config['email']['to']}] в [{config['other']['start_time']}] сейчас [{pendulum.now().to_time_string()[:-3]}]")
+countdown()
 schedule.every().day.at(config['other']['start_time']).do(main)
 schedule.every(2).hours.do(countdown)
 
