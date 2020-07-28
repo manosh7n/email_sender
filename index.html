@@ -25,6 +25,7 @@
         <tr>
           <td>_id</td>
           <td>uid</td>
+          <td>name</td>
           <td>time_enrolled</td>
           <td>photo</td>
         </tr>
@@ -34,6 +35,7 @@
         <tr>
           <td>{{ row._id }}</td>
           <td>{{ row.uid }}</td>
+          <td>{{ row.name }}</td>
           <td>{{ row.time_enrolled }}</td>
           <td><img src='data:image/png;base64,{{b64[row.uid]}}'></td>
         </tr>

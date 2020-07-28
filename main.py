@@ -28,7 +28,7 @@ def get_records(cfg):
     dt = dt.subtract(days=1)
 
     filter_ = {"time_enrolled": {"$gt": dt}}
-    fields_ = {"_id": 1, "uid": 1, "time_enrolled": 1, "photo": 1}
+    fields_ = {"_id": 1, "uid": 1, "name": 1, "time_enrolled": 1, "photo": 1}
     collection.create_index("time_enrolled")
     cursor = collection.find(filter_, fields_).sort("time_enrolled", pymongo.ASCENDING)
 
