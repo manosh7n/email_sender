@@ -7,6 +7,7 @@ import base64
 import email.message
 from jinja2 import Template
 
+
 with open("config.json", encoding="utf-8") as json_config:
     config = json.load(json_config)
 
@@ -25,7 +26,6 @@ def get_records(cfg):
 
     dt = pendulum.now()
     dt = dt.subtract(days=1)
-    dt = str(dt)[:-9] + 'Z'
 
     filter_ = {"time_enrolled": {"$gt": dt}}
     fields_ = {"_id": 1, "uid": 1, "time_enrolled": 1, "photo": 1}
