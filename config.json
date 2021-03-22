@@ -1,8 +1,8 @@
 {
   "mongo": {
     "connection" : "mongodb://localhost:27017/",
-    "database_name": "users",
-    "collection_name": "currency"
+    "database_name": "faces_EOB",
+    "collection_name": "FRS_dialoguser"
   },
   "email": {
     "from" : "...@yandex.ru",
